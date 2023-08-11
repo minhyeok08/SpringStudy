@@ -12,4 +12,9 @@ public interface FoodMapper {
 	
 	//<select id="foodListData" resultType="FoodVO" parameterType="int">
 	public List<FoodVO> foodListData(int cno);
+	
+	//<select id="foodDetailData" resultType="FoodVO" parameterType="int">
+	//			  --------------			  ------				 ---
+	//			 메소드명 (id와 일치)		   	   리턴형					매개변수
+	public FoodVO foodDetailData(int fno);
 }
