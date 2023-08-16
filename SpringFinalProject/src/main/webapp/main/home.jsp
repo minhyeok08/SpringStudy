@@ -62,7 +62,7 @@
       <ul class="slides">
         <li v-for="vo,index in cate_list" v-if="index>=0 && index<12">
           <figure><img class="radius-10 btmspace-10" :src="vo.poster" :title="vo.subject">
-            <figcaption><a href="#">{{vo.title}}</a></figcaption>
+            <figcaption><a href="'../food/food_list.do?cno='+vo.cno">{{vo.title}}</a></figcaption>
           </figure>
         </li>
         
@@ -75,7 +75,7 @@
       <ul class="slides">
         <li v-for="vo,index in cate_list" v-if="index>=12 && index<18">
           <figure><img class="radius-10 btmspace-10" :src="vo.poster" :title="vo.subject">
-            <figcaption><a href="#">{{vo.title}}</a></figcaption>
+            <figcaption><a href="'../food/food_list.do?cno='+vo.cno">{{vo.title}}</a></figcaption>
           </figure>
         </li>
         
@@ -95,7 +95,7 @@
       </ul>
     </div>
     
-    <h2 class="sectiontitle">최산 방문 맛집</h2>
+    <h2 class="sectiontitle">최신 방문 맛집</h2>
     
     <ul class="nospace group">
       <li class="one_half first">
