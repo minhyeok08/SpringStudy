@@ -24,14 +24,15 @@
 <body>
 <div class="wrapper row3">
    <main class="container clear">
-    <div class="jumbotron">
-     <h3 class="text-center">{{cate_info.title}}</h3>
-     <h4 class="text-center">{{cate_info.subject}}</h4>
-    </div>
+   	<div class="jumbotron">
+   		<h3 class="text-center">{{cate_info.title}}</h3>
+   		<h4 class="text-center">{{cate_info.subject}}</h4>
+   	</div>
     <div class="row">
+    
     </div>
    </main>
-</div>
+</div>    
 <script>
 	new Vue({
 		el:'.container',
@@ -46,19 +47,17 @@
 					cno:this.cno
 				}
 			}).then(res=>{
-				console.log(res.data)
 				this.cate_info=res.data
 			})
-			axios.get('http://localhost/web/food/food_list_vue.do',{
+			/* axios.get('http://localhost/web/food/food_list_vue.do',{
 				params:{
 					cno:this.cno
 				}
 			}).then(res=>{
 				this.food_list=res.data
-			})		
-		})
-		
+			}) */
+		}
 	})
-</script>
+</script>  
 </body>
 </html>

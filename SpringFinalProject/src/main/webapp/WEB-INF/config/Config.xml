@@ -6,8 +6,11 @@
 	<typeAliases>
 		<typeAlias type="com.sist.vo.CategoryVO" alias="CategoryVO"/>
 		<typeAlias type="com.sist.vo.FoodVO" alias="FoodVO"/>
+		<typeAlias type="com.sist.vo.PageVO" alias="PageVO"/>
+		<typeAlias type="com.sist.vo.PageVO" alias="RecipeVO"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/sist/mapper/food-mapper.xml"/>
+		<mapper resource="com/sist/mapper/recipe-mapper.xml"/>
 	</mappers>
 </configuration>
