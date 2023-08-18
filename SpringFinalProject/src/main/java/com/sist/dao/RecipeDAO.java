@@ -43,4 +43,13 @@ public class RecipeDAO {
 	{
 		return mapper.chefInfoData(chef);
 	}
+	
+	public List<RecipeVO> chefFindData(Map map)
+	{
+		return mapper.chefFindData(map);
+	}
+	public int chefFindCount(Map map)
+	{
+		return mapper.chefFindCount(map);
+	}
 }

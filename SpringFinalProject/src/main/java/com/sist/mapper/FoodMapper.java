@@ -14,6 +14,11 @@ public interface FoodMapper {
 			+ "WHERE cno=#{cno}")
 	public CategoryVO foodCategoryInfoData(int cno);
 	
+	@Select("SELECT fno,name,address,phone,type,poster,score "
+			+ "FROM food_house "
+			+ "WHERE cno=#{cno}")
+	public List<FoodVO> foodListData(int cno); 
+	
 	public List<FoodVO> foodFindData(Map map);
 	
 	public int foodFindTotalPage(Map map);
