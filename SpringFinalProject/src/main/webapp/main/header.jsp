@@ -102,7 +102,7 @@
       },
       methods:{
          logout:function(){
-            axios.get('http://localhost/web/member/logout.do')
+            axios.get('http://localhost/web/member/logout_vue.do')
             .then(res=>{
                location.href="../main/main.do"
             })

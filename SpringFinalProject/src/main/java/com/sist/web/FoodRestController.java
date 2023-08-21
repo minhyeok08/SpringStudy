@@ -13,6 +13,10 @@ import com.sist.vo.*;
 public class FoodRestController {
 	@Autowired
 	private FoodDAO dao;
+	
+	@Autowired
+	private ReplyDAO rdao;
+	
 	@GetMapping(value = "food/category_vue.do",produces = "text/plain;charset=UTF-8")
 	public String food_category() throws Exception
 	{
@@ -42,6 +46,14 @@ public class FoodRestController {
 			String address=vo.getAddress();
 			address=address.substring(0,address.indexOf("지번"));
 			vo.setAddress(address);
+			
+			int count=rdao.foodReplyCount(vo.getFno());
+			if(count!=0)
+			{
+			ReplyVO rvo=rdao.foodReplyData(vo.getFno());
+			vo.setUserName(rvo.getName());
+			vo.setRdata(rvo.getMsg());
+			}
 		}
 		ObjectMapper mapper=new ObjectMapper();
 		String json=mapper.writeValueAsString(list);
@@ -104,6 +116,19 @@ public class FoodRestController {
 		String addr=vo.getAddress();
 		addr= addr.substring(0,addr.indexOf("지번"));
 		vo.setAddress(addr.trim());
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(vo);
+		return json;
+	}
+	
+	@GetMapping(value="food/food_house_detail.vue.do",produces = "text/plain;charset=UTF-8")
+	public String food_house_detail(int fno) throws Exception
+	{
+		FoodVO vo = dao.foodDetailData(fno);
+		String addr=vo.getAddress();
+		addr= addr.substring(0,addr.indexOf("지번"));
+		vo.setAddress(addr.trim());
+
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(vo);
 		return json;

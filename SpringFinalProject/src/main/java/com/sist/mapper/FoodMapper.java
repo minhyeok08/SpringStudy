@@ -14,7 +14,11 @@ public interface FoodMapper {
 			+ "WHERE cno=#{cno}")
 	public CategoryVO foodCategoryInfoData(int cno);
 	
-	@Select("SELECT fno,name,address,phone,type,poster,score "
+	@Select("SELECT fno,name,address,phone,type,poster,score,"
+			+ "(SELECT name FROM springReply "
+			+ "WHERE rownum=1 AND fno=food_house.fno) as userName,"
+			+ "(SELECT msg FROM springReply "
+			+ "WHERE rownum=1 AND fno=food_house.fno) as rdata "
 			+ "FROM food_house "
 			+ "WHERE cno=#{cno}")
 	public List<FoodVO> foodListData(int cno); 
@@ -23,8 +27,10 @@ public interface FoodMapper {
 	
 	public int foodFindTotalPage(Map map);
 	
-	@Select("SELECT fno,name,tel as phone,address,type,time,parking,menu,price,score,poster "
-			+ "FROM food_location "
+	@Select("SELECT fno,cno,name,phone,address,type,time,parking,price,score,poster "
+			+ "FROM food_house "
 			+ "WHERE fno=#{fno}")
 	public FoodVO foodDetailData(int fno);
+	
+	
 }
