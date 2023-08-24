@@ -53,7 +53,7 @@
         	this.$refs.account
          --%>
           <td width=65%>
-            수량:<select name=account ref="account" v-on:change="change()">
+             <select name=account ref="account" v-on:change="change()">
                <option>1</option>
                <option>2</option>
                <option>3</option>

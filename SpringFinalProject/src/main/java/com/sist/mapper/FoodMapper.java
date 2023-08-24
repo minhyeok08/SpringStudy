@@ -32,5 +32,16 @@ public interface FoodMapper {
 			+ "WHERE fno=#{fno}")
 	public FoodVO foodDetailData(int fno);
 	
+	//@Select("SELECT fno,cno,name,phone,address,type,time,parking,price,score,poster "
+	//		+ "FROM food_house WHERE fno=#{fno}")
+	//public FoodVO foodDetailHouserData(int fno);
 	
+	// 추천
+	@Select("SELECT DISTINCT name FROM food_location WHERE LENGTH(name)>1")
+	public List<String> foodNameGetData();
+	
+	// 실제 정보
+	@Select("SELECT fno,name,poster,rownum FROM food_location "
+			+ "WHERE name=#{name} AND rownum<=1")
+	public FoodVO foodRecommandInfoData(String name);
 }
